@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.web;
 
 import org.slf4j.Logger;
 
+import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.util.MealsUtil;
 import ru.javawebinar.topjava.model.MealTo;
 
@@ -20,7 +21,7 @@ public class MealServlet extends HttpServlet {
     private static final Logger log = getLogger(MealServlet.class);
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.debug("redirect to users");
+        log.debug("redirect to meals");
         //response.sendRedirect("meals.jsp");
         List<MealTo> meals = MealsUtil.initMeals();
         request.setAttribute("meals", meals);

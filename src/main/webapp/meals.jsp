@@ -12,16 +12,20 @@
 <table border=1>
     <tr>
         <th>dateTime</th>
-        <th>desc</th>
+        <th>description</th>
         <th>calories</th>
+        <th>update</th>
+        <th>delete</th>
     </tr>
     <c:forEach items="${requestScope.meals}" var="meal">
-        <tr style="color:${meal.excess ? 'green' : 'red'}">
+        <tr>
             <td><fmt:parseDate value="${meal.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime"
                            type="both"/>
                 <fmt:formatDate pattern="dd.MM.yyyy HH:mm" value="${parsedDateTime}"/></td>
             <td><c:out value="${meal.description}" /></td>
             <td><c:out value="${meal.calories}" /></td>
+            <td></td>
+            <td><a href="meals?action=delete&id=<c:out value="${meal.id}"/>">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -42,5 +42,20 @@ public class InMemoryMealRepository implements MealRepository {
     public Collection<Meal> getAll() {
         return repository.values();
     }
+
+    @Override
+    public Map<Integer, Meal> getByUser(int id) {
+        Map<Integer, Meal> result = new ConcurrentHashMap<>();
+        for (Map.Entry entry : repository.entrySet()) {
+            Meal meal = (Meal) entry.getValue();
+            if (meal.getId().equals(id)) {
+                result.put(meal.getId(), meal);
+            }
+        }
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result;
+    }
 }
 

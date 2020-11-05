@@ -3,8 +3,10 @@ package ru.javawebinar.topjava.repository;
 import ru.javawebinar.topjava.model.Meal;
 
 import java.util.Collection;
+import java.util.Map;
 
 public interface MealRepository {
+
     // null if not found, when updated
     Meal save(Meal meal);
 
@@ -15,4 +17,6 @@ public interface MealRepository {
     Meal get(int id);
 
     Collection<Meal> getAll();
+
+    Map<Integer, Meal> getByUser(int id);
 }

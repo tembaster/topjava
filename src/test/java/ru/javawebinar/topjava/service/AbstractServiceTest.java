@@ -25,6 +25,7 @@ import static ru.javawebinar.topjava.util.ValidationUtil.getRootCause;
 @ActiveProfiles(resolver = ActiveDbProfileResolver.class)
 abstract public class AbstractServiceTest {
 
+
     @ClassRule
     public static ExternalResource summary = TimingRules.SUMMARY;
 
